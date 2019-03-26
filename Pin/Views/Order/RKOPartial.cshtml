@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Pin.Entitties.Order
+<br />
+<br />
+<fieldset>
+    <legend>Органзация</legend>
+    <div>
+        <div id=companyheader>"@Html.DisplayFor(model => model.Company.Name)"/ ЕИК: @Html.DisplayFor(model => model.Company.EIK)</div>
+    </div>
+</fieldset>
+
+
+<hr />
+
+<h5>РАЗХОДЕН КАСОВ ОРДЕР</h5>
+
+
+Номер: @Html.DisplayFor(model => model.Number) / Дата: @Html.DisplayFor(model => model.Date)
+
+<div class="col-sm-6">
+
+</div>
+
+<div id=companyheader class="boxed">
+    <table>
+        <tr>
+            <td>Да се плати на:</td>
+            <td>@Html.DisplayFor(model => model.Receiver)</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Лична карта и ЕГН:</td>
+            <td>..................................................................................................................................................................................................</td>
+        </tr>
+        <tr>
+            <td>Адрес:</td>
+            <td>..................................................................................................................................................................................................</td>
+        </tr>
+        <tr>
+            <td>Представител на:</td>
+            <td>..................................................................................................................................................................................................</td>
+        </tr>      
+        <tr>
+            <td>Пълномощно:</td>
+            <td>..................................................................................................................................................................................................</td>
+        </tr>
+    </table>
+</div>
+<hr />
+
+
+<fieldset>
+    <legend>Основание</legend>
+    <div>
+        <div id="reason">@Html.DisplayFor(model => model.Reason)</div>
+    </div>
+</fieldset>
+<hr/>
+<fieldset>
+    <legend>Сума</legend>
+    <div>
+        <span style="text-align:left">@Html.DisplayFor(model => model.Amount)</span><span style="float:right">@Html.DisplayFor(model => model.Amount)</span>
+    </div>
+</fieldset>
+<table>
+    <tr>
+        <td>Счетоводител:</td>
+        <td>...........................................</td>
+       
+        <td>Изплатил сумата:</td>
+        <td>...........................................</td>
+    </tr>
+    <tr>
+        <td>Ръководител:</td>
+        <td>...........................................</td>
+      
+        <td>Получил сумата:</td>
+        <td>...........................................</td>
+    </tr>
+
+</table>
+
+

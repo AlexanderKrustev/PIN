@@ -1,0 +1,86 @@
+﻿@model OrderIndexVM
+@System.Globalization.CultureInfo.CurrentUICulture
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+<hr />
+<h5> Филтри </h5>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <form>
+                <label asp-for="Company" class="control-label">По Фирма</label>
+                <select asp-for="Company" asp-items="Model.Companies" class="form-control"></select>
+                <label asp-for="Year" class="control-label">По Година</label>
+                <select asp-for="Year" asp-items="Model.Years" class="form-control"></select>
+                <input type="submit" value="Приложи Филтър" class="btn btn-primary" />
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<hr/>
+<a asp-action="Create" class="btn btn-primary">Създаване</a>
+<hr/>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Номер")
+            </th>
+            <th>
+                @Html.DisplayName("Фирма")
+            </th>
+            <th>
+                @Html.DisplayName("Получател")
+            </th>
+            <th>
+                @Html.DisplayName("Дата")
+            </th>
+            <th>
+                @Html.DisplayName("Сума")
+            </th>
+            <th>
+                @Html.DisplayName("Причина")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receiver)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                   
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редакция</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Детайли</a> |
+                    <a asp-action="DownloadPDF" asp-route-id="@item.Id" target="_blank">Свали </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
